@@ -3,8 +3,8 @@ Project.Name=NBK2002
 Project.Path=C:\Users\proyr\Projects\NBK2002
 Project.KeilPath=C:\Users\proyr\Projects\NBK2002\Keil_C\
 Project.CurrentPath=C:\Users\proyr\Projects\NBK2002\NBK2002.cgen
-Project.CreationTime=20250523160821
-Project.ModificationTime=20250523160821
+Project.CreationTime=20250523170855
+Project.ModificationTime=20250523170855
 Project.Version=EasyCodeCube 3.5.0
 Project.IsBootloaderProject=false
 Project.IsUnifiedVersionProject=True
@@ -66,7 +66,7 @@ HIRC使能=True
 NVIC的RCC中断设置=0
 [/Configure][/Peripheral]
 [Peripheral]SYSTICK[Index]3[/Index]
-[Configure]主频=[8000000]
+[Configure]主频=[4000000]
 计数值=[8000]
 NVIC的SYSTICK中断设置=0
 SYSTICK使能=True
@@ -88,10 +88,10 @@ $34$TxD1模式:带上拉的输入
 [Peripheral]DMA0[Index]31[/Index]
 [Configure]主频(AHB)=[64000000]
 通道优先级=0
-传输源地址增减模式设置=3
+传输源地址增减模式设置=1
 传输目标地址增减模式设置=0
 源内存缓存地址=[0x0000]
-目标内存缓存地址=[0x0000]
+目标内存缓存地址=[(uint32_t)&UART1->UART_DATA]
 数据宽度=0
 Burst大小=0
 缓存大小=[0x0000]

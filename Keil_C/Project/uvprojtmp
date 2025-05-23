@@ -97,6 +97,11 @@
               <FileType>1</FileType>
               <FilePath>..\Apps\FreeRTOS_Hook.c</FilePath>
             </File>
+            <File>
+              <FileName>UART_Circular_Buffer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Apps\UART_Circular_Buffer.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
