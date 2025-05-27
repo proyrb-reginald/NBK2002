@@ -1,6 +1,6 @@
 #include "UART_Circular_Buffer.h"
 #include "sc32f1xxx_dma.h"
-#include "SC_Init.h"
+#include "print.h"
 
 UART_CircularBuffer uart1;
 

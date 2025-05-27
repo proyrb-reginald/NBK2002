@@ -489,6 +489,11 @@
               <FileType>1</FileType>
               <FilePath>..\Apps\print.c</FilePath>
             </File>
+            <File>
+              <FileName>SPI_Chunk_Buffer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Apps\SPI_Chunk_Buffer.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -497,6 +502,11 @@
         <Group>
           <GroupName>FWLib</GroupName>
           <Files>
+            <File>
+              <FileName>sc32f1xxx_spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FWLib\SC32F1XXX_Lib\src\sc32f1xxx_spi.c</FilePath>
+            </File>
             <File>
               <FileName>sc32f1xxx_dma.c</FileName>
               <FileType>1</FileType>

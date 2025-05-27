@@ -3,6 +3,8 @@
 
 #define BUFFER_SIZE 256
 
+char * const temp = "$ [%s:%s] %s: %u (%s)\n";
+
 static char buf[BUFFER_SIZE] = "";
 
 /**

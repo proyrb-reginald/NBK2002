@@ -3,6 +3,8 @@
 
 #include <stdint.h>
 #include <string.h>
+#include <stdbool.h>
+#include "SC_Init.h"
 #include "FreeRTOS.h"
 #include "semphr.h"
 
@@ -19,7 +21,7 @@ typedef struct {
 // 串口缓冲模块结构
 typedef struct {
     RingBuffer tx_buffer;
-    volatile uint8_t transmitting;   // 是否正在发送
+    volatile bool transmitting;   // 是否正在发送
     volatile uint16_t transmit_size;
     SemaphoreHandle_t using_s;       // 互斥信号量
     SemaphoreHandle_t transmit_s;    // 同步信号量
