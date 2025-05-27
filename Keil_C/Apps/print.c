@@ -20,7 +20,7 @@ int print(const char *format, ...) {
     int total_length = 0;   // 总字符数
 
     // 临时缓冲区用于数字转换
-    char num_str[12];  
+    char num_str[16];  
 
     // 遍历格式字符串
     for (int i = 0; format[i] != '\0'; i++) {
@@ -104,7 +104,7 @@ int print(const char *format, ...) {
 
     va_end(ap);
     
-    UART_Buffer_WriteMulti(&uart, (const uint8_t *)buf, total_length);
+    UART_Buffer_Write(&uart1, (const uint8_t *)buf, total_length);
     
     return total_length;
 }

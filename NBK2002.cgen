@@ -3,8 +3,8 @@ Project.Name=NBK2002
 Project.Path=C:\Users\proyr\Projects\NBK2002
 Project.KeilPath=C:\Users\proyr\Projects\NBK2002\Keil_C\
 Project.CurrentPath=C:\Users\proyr\Projects\NBK2002\NBK2002.cgen
-Project.CreationTime=20250523170855
-Project.ModificationTime=20250523170855
+Project.CreationTime=20250527090242
+Project.ModificationTime=20250527110820
 Project.Version=EasyCodeCube 3.5.0
 Project.IsBootloaderProject=false
 Project.IsUnifiedVersionProject=True
@@ -15,15 +15,15 @@ Project.IsUnifiedVersionProject=True
 [WindowStyleSet]
 [WindowStyle]
 Name=CodeBrowser
-Style=DockRight
+Style=Unknown
 [/WindowStyle]
 [WindowStyle]
 Name=MainInterface
-Style=Document
+Style=Unknown
 [/WindowStyle]
 [WindowStyle]
 Name=Designer
-Style=Document
+Style=Unknown
 [/WindowStyle]
 [WindowStyle]
 Name=Watch
@@ -136,5 +136,5 @@ radioButton_CLOCK_HXT=False
 radioButton_CLOCK_HIRC=True
 radioButton_CLOCK_LIRC=False
 radioButton_CLOCK_PPLR=False
-[/RCCClockConfiguration]
 
+[/RCCClockConfiguration]
