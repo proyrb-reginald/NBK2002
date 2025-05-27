@@ -1,6 +1,10 @@
 #include "print.h"
 #include "UART_Circular_Buffer.h"
 
+#define BUFFER_SIZE 256
+
+static char buf[BUFFER_SIZE] = "";
+
 /**
  * 格式化字符串缓冲区，支持%s和%u格式化
  * @param buf 目标缓冲区
@@ -12,9 +16,6 @@
 int print(const char *format, ...) {
     va_list ap;
     va_start(ap, format);
-    
-    char buf[64] = "";
-    size_t size = 64;
 
     int index = 0;          // 当前写入位置
     int total_length = 0;   // 总字符数
@@ -35,7 +36,7 @@ int print(const char *format, ...) {
                 
                 while (*s != '\0') {
                     total_length++;
-                    if (index < size - 1) {
+                    if (index < BUFFER_SIZE - 1) {
                         buf[index++] = *s;
                     }
                     s++;
@@ -68,7 +69,7 @@ int print(const char *format, ...) {
                 int k = 0;
                 while (num_str[k] != '\0') {
                     total_length++;
-                    if (index < size - 1) {
+                    if (index < BUFFER_SIZE - 1) {
                         buf[index++] = num_str[k];
                     }
                     k++;
@@ -77,10 +78,10 @@ int print(const char *format, ...) {
             else {
                 // 未知格式符，原样输出%和当前字符
                 total_length += 2;
-                if (index < size - 1) {
+                if (index < BUFFER_SIZE - 1) {
                     buf[index++] = '%';
                 }
-                if (index < size - 1) {
+                if (index < BUFFER_SIZE - 1) {
                     buf[index++] = format[i];
                 }
             }
@@ -88,19 +89,17 @@ int print(const char *format, ...) {
         else {
             // 普通字符直接复制
             total_length++;
-            if (index < size - 1) {
+            if (index < BUFFER_SIZE - 1) {
                 buf[index++] = format[i];
             }
         }
     }
 
     // 确保字符串终止
-    if (size > 0) {
-        if (index >= size) {
-            index = size - 1; // 截断处理
-        }
-        buf[index] = '\0';
+    if (index >= BUFFER_SIZE) {
+        index = BUFFER_SIZE - 1; // 截断处理
     }
+    buf[index] = '\0';
 
     va_end(ap);
     

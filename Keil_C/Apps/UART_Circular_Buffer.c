@@ -117,7 +117,9 @@ void DMA0_IRQHandler(void) {
     uart1.tx_buffer.tail = (uart1.tx_buffer.tail + uart1.transmit_size) & TX_BUFFER_SIZE_MASK; // 更新tail指针
 
     if (uart1.tx_buffer.tail != uart1.tx_buffer.head) {
-        xSemaphoreGive(uart1.transmit_s); // 如何还有数据就继续启动传输
+        BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+        xSemaphoreGiveFromISR(uart1.transmit_s, &xHigherPriorityTaskWoken); // 如何还有数据就继续启动传输
+        portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
     } else {
         uart1.transmitting = 0; // 否则清除DMA正在传输的标志位
     }
