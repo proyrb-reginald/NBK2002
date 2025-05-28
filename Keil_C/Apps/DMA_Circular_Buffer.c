@@ -49,7 +49,7 @@ typedef struct {
 
 /******************** 变量定义 ********************/
 
-static DMA_Circular_Buffer_DMA_RTOS corporation; // 法人
+DMA_Circular_Buffer_DMA_RTOS corporation; // 法人
 
 /******************** 函数定义 ********************/
 
@@ -69,7 +69,7 @@ static void DMA_Circular_Buffer_Transfer(void) {
         if (head >= tail) {
             corporation.transmit_size = head - tail;
         } else {
-            corporation.transmit_size = DMA_CIRCULAR_BUFFER_SIZE_MASK - tail;
+            corporation.transmit_size = DMA_CIRCULAR_BUFFER_SIZE - tail;
         }
 
         // 启动DMA传输（根据具体平台实现）
@@ -105,7 +105,7 @@ int  DMA_Circular_Buffer_Write(uint8_t * data, uint16_t len) {
     // 获取互斥信号量（任务上下文）
     if (xSemaphoreTake(corporation.using_s, portMAX_DELAY) == pdTRUE) {
         DMA_Circular_Buffer *rb = &corporation.circular_buffer;
-        uint16_t space = (rb->tail + DMA_CIRCULAR_BUFFER_SIZE_MASK - rb->head - 1) & DMA_CIRCULAR_BUFFER_SIZE_MASK;
+        uint16_t space = (rb->tail + DMA_CIRCULAR_BUFFER_SIZE - rb->head - 1) & DMA_CIRCULAR_BUFFER_SIZE_MASK;
 
         // 如果没有空间，直接返回0
         if (space == 0) {
@@ -119,7 +119,7 @@ int  DMA_Circular_Buffer_Write(uint8_t * data, uint16_t len) {
         }
 
         // 分段写入（考虑环形缓冲区的环绕结构）
-        uint16_t first_part_len = DMA_CIRCULAR_BUFFER_SIZE_MASK - rb->head;
+        uint16_t first_part_len = DMA_CIRCULAR_BUFFER_SIZE - rb->head;
         if (first_part_len > len) {
             first_part_len = len;  // 不需要分段
         }
