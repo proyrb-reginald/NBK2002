@@ -1,5 +1,5 @@
 #include "print.h"
-#include "UART_Circular_Buffer.h"
+#include "DMA_Circular_Buffer.h"
 
 #define BUFFER_SIZE 256
 
@@ -105,7 +105,7 @@ int print(const char *format, ...) {
 
     va_end(ap);
     
-    UART_Buffer_Write(&uart1, (const uint8_t *)buf, total_length);
+    DMA_Circular_Buffer_Write((uint8_t *)buf, total_length);
     
     return total_length;
 }

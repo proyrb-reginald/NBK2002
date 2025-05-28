@@ -20,7 +20,7 @@
 #include "HeadFiles\SysFunVarDefine.h"
 #include "FreeRTOS.h"
 #include "task.h"
-#include "UART_Circular_Buffer.h"
+#include "DMA_Circular_Buffer.h"
 #include "SPI_Chunk_Buffer.h"
 #include "print.h"
 
@@ -35,6 +35,7 @@ void vTask_Monitor(void *pvParameters) {
 	for(;;) {
         print(temp, "Monitor", PRINT_LEVEL_0, "free heap", xPortGetMinimumEverFreeHeapSize(), "bytes");
         print(temp, "Monitor", PRINT_LEVEL_0, "free stack", uxTaskGetStackHighWaterMark(NULL), "words");
+        GPIO_TogglePins(GPIOB, GPIO_Pin_15);
 	    vTaskDelay(1000);
 	}
 }
@@ -60,7 +61,7 @@ int main(void)
     /*<UserCodeStart>*//*<SinOne-Tag><36>*/
     
     IcResourceInit();
-    UART_CircularBuffer_Init(&uart1);
+    DMA_Circular_Buffer_Init();
     SPI_ChunkBuffer_Init(&spi0);
 
     /*<UserCodeEnd>*//*<SinOne-Tag><36>*/
@@ -69,8 +70,8 @@ int main(void)
     print("\n$ [info] Initialization completed.\n");
 
     xTaskCreate(vTask_Monitor, "Monitor", 64, NULL, 1, task[0]);
-    xTaskCreate(vTask_StartTransmit, "StartTransmit", 32, NULL, 2, task[1]);
-    xTaskCreate(vTask_SPI, "SPI", 64, NULL, 3, task[2]);
+    //xTaskCreate(vTask_DMA_Circular_Buffer, "DMA_Circular_Buffer", 32, NULL, 2, task[1]);
+    //xTaskCreate(vTask_SPI, "SPI", 64, NULL, 3, task[2]);
     vTaskStartScheduler();
     
     /*****MainLoop*****/

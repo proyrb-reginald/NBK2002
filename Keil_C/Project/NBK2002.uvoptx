@@ -429,8 +429,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Apps\UART_Circular_Buffer.c</PathWithFileName>
-      <FilenameWithoutPath>UART_Circular_Buffer.c</FilenameWithoutPath>
+      <PathWithFileName>..\Apps\print.c</PathWithFileName>
+      <FilenameWithoutPath>print.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -441,8 +441,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Apps\print.c</PathWithFileName>
-      <FilenameWithoutPath>print.c</FilenameWithoutPath>
+      <PathWithFileName>..\Apps\SPI_Chunk_Buffer.c</PathWithFileName>
+      <FilenameWithoutPath>SPI_Chunk_Buffer.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -453,8 +453,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\Apps\SPI_Chunk_Buffer.c</PathWithFileName>
-      <FilenameWithoutPath>SPI_Chunk_Buffer.c</FilenameWithoutPath>
+      <PathWithFileName>..\Apps\DMA_Circular_Buffer.c</PathWithFileName>
+      <FilenameWithoutPath>DMA_Circular_Buffer.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
