@@ -1,11 +1,7 @@
-#include "print.h"
-#include "DMA_Circular_Buffer.h"
+#include "Terminal.h"
+#include "DMA-Buffer-Manager.h"
 
 #define BUFFER_SIZE 256
-
-char * const temp = "$ [%s:%s] %s: %u (%s)\n";
-
-static char buf[BUFFER_SIZE] = "";
 
 /**
  * 格式化字符串缓冲区，支持%s和%u格式化
@@ -15,7 +11,7 @@ static char buf[BUFFER_SIZE] = "";
  * @param ... 可变参数列表
  * @return 实际需要写入的字符数（不包括终止符）
  */
-int print(const char *format, ...) {
+int Terminal_Output(const char *format, ...) {
     va_list ap;
     va_start(ap, format);
 
@@ -23,7 +19,8 @@ int print(const char *format, ...) {
     int total_length = 0;   // 总字符数
 
     // 临时缓冲区用于数字转换
-    char num_str[16];  
+    char num_str[16];
+	char buf[BUFFER_SIZE] = "";
 
     // 遍历格式字符串
     for (int i = 0; format[i] != '\0'; i++) {
@@ -104,8 +101,9 @@ int print(const char *format, ...) {
     buf[index] = '\0';
 
     va_end(ap);
-    
-    DMA_Circular_Buffer_Write((uint8_t *)buf, total_length);
+	
+	extern DMA_Buffer_Manager Manager;
+    DMA_Buffer_Manager_Input(&Manager, (uint8_t *)buf, total_length);
     
     return total_length;
 }

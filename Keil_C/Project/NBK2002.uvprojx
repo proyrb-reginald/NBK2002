@@ -16,8 +16,8 @@
         <TargetCommonOption>
           <Device>ARMCM0P</Device>
           <Vendor>ARM</Vendor>
-          <PackID>ARM.CMSIS.5.7.0</PackID>
-          <PackURL>http://www.keil.com/pack/</PackURL>
+          <PackID>ARM.Cortex_DFP.1.1.0</PackID>
+          <PackURL>https://www.keil.com/pack/</PackURL>
           <Cpu>IRAM(0x20000000,0x00020000) IROM(0x00000000,0x00040000) CPUTYPE("Cortex-M0+") CLOCK(12000000) ESEL ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
           <StartupFile></StartupFile>
@@ -138,7 +138,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -190,7 +190,7 @@
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
-            <useUlib>0</useUlib>
+            <useUlib>1</useUlib>
             <EndSel>1</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
@@ -480,19 +480,14 @@
               <FilePath>..\Apps\FreeRTOS_Hook.c</FilePath>
             </File>
             <File>
-              <FileName>print.c</FileName>
+              <FileName>DMA-Buffer-Manager.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Apps\print.c</FilePath>
+              <FilePath>..\Apps\DMA-Buffer-Manager.c</FilePath>
             </File>
             <File>
-              <FileName>SPI_Chunk_Buffer.c</FileName>
+              <FileName>Terminal.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Apps\SPI_Chunk_Buffer.c</FilePath>
-            </File>
-            <File>
-              <FileName>DMA_Circular_Buffer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Apps\DMA_Circular_Buffer.c</FilePath>
+              <FilePath>..\Apps\Terminal.c</FilePath>
             </File>
           </Files>
         </Group>

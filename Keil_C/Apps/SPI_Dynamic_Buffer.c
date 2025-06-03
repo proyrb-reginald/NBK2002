@@ -1,4 +1,4 @@
-#include "SPI_Chunk_Buffer.h"
+#include "SPI_Dynamic_Buffer.h"
 #include "sc32f1xxx_dma.h"
 
 SPI_Chunk_Buffer spi0;

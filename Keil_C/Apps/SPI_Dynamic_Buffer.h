@@ -1,5 +1,5 @@
-#ifndef SPI_CHUNK_BUFFER_H
-#define SPI_CHUNK_BUFFER_H
+#ifndef SPI_DYNAMIC_BUFFER_H
+#define SPI_DYNAMIC_BUFFER_H
 
 #include <stdbool.h>
 #include "SC_Init.h"
@@ -19,4 +19,4 @@ void SPI_Send_One(SPI_Chunk_Buffer *spi, uint8_t bytes);
 
 void SPI_Send_Multi(SPI_Chunk_Buffer *spi, uint8_t *bytes, uint8_t len);
 
-#endif // SPI_CHUNK_BUFFER_H
+#endif // SPI_DYNAMIC_BUFFER_H

@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "spi_dynamic_buffer.h": "c",
+        "sc32f1xxx_dma.h": "c"
+    }
+}
